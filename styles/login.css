@@ -1,0 +1,121 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.login-container {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  padding-top: 0;
+  padding-bottom: 5vh;
+  padding-left: 7vw;
+  padding-right: 7vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  background-color: white;
+}
+
+
+
+.text-field,
+.text-field2,
+.text-field3 {
+  width: 200px;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.field-container {
+  animation: animation-test1 5s ease-in-out infinite;
+}
+.field-container2 {
+  animation: animation-test2 5s ease-in-out infinite;
+}
+.field-container3 {
+  animation: animation-test3 5s ease-in-out infinite;
+}
+
+.field-container,
+.field-container2, 
+.field-container3 {
+  position: relative;  
+}
+
+@keyframes animation-test1 {
+  0% {
+    left: -20px;
+  }
+  
+  50% {
+    left: 20px;
+  }
+
+  100% {
+    left: -20px;
+  }
+}
+
+@keyframes animation-test2 {
+  0% {
+    right: -20px;
+  }
+  
+  50% {
+    right: 20px;
+  }
+
+  100% {
+    right: -20px;
+  }
+}
+
+@keyframes animation-test3 {
+  0% {
+    top: -10px;
+  }
+  
+  50% {
+    top: 20px;
+  }
+
+  100% {
+    top: -10px;
+  }
+}
+
+.text-field::placeholder,
+.text-field2::placeholder,
+.text-field3::placeholder {
+  font-size: 15px;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.text-field:hover::placeholder,
+.text-field2:hover::placeholder,
+.text-field3:hover::placeholder {
+  opacity: 1;
+}
+
+.button-container {
+  padding-top: 40px;
+}
+
+.login-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 2px 10px rgba(57, 91, 47, 0.983);
+}
+
