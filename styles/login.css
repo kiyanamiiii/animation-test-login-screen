@@ -1,3 +1,4 @@
+/* Centraliza o container principal */
 .container {
   display: flex;
   justify-content: center;
@@ -6,21 +7,61 @@
   height: 100vh;
 }
 
+/* Estilização do box de login */
 .login-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: white;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  padding-top: 0;
-  padding-bottom: 5vh;
-  padding-left: 7vw;
-  padding-right: 7vw;
+  padding: 10px 7vw 5vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 10px;
-  background-color: white;
+  z-index: 1;
 }
 
+.login-container::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  background: linear-gradient(180deg, #ff7e5f, #38281c);
+  animation: border-rotate 1s linear infinite; 
+  z-index: -2;
+  border-radius: 12px; /* Borda mais próxima do container */
+}
 
+.login-container::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  background-color: white;
+  border-radius: 11px;
+  z-index: -1;
+}
 
+/* Título */
+.login-title {
+  font-size: 50px;
+}
+
+/* Estilo geral para campos */
+.field-container,
+.field-container2,
+.field-container3 {
+  position: relative;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Labels */
+.field-label {
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: normal;
+}
+
+/* Inputs */
 .text-field,
 .text-field2,
 .text-field3 {
@@ -29,67 +70,70 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  position: relative;
 }
 
-.field-container {
-  animation: animation-test1 5s ease-in-out infinite;
+/* Botão */
+.button-container {
+  padding-top: 40px;
 }
+
+.login-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(57, 91, 47, 0.983);
+  transition: 0.3s ease-in-out;
+}
+
+.login-button:hover {
+  padding: 20px 40px;
+}
+
+/* Animações ativadas apenas enquanto estiver com o mouse por cima do text field   */
+.field-container:hover {
+  animation: animation-test1 5s ease-in-out forwards;
+}
+
+/* Animações contínuas */
 .field-container2 {
   animation: animation-test2 5s ease-in-out infinite;
 }
+
 .field-container3 {
   animation: animation-test3 5s ease-in-out infinite;
 }
 
-.field-container,
-.field-container2, 
-.field-container3 {
-  position: relative;  
-}
-
+/* Keyframes */
 @keyframes animation-test1 {
-  0% {
-    left: -20px;
-  }
-  
-  50% {
-    left: 20px;
-  }
-
-  100% {
-    left: -20px;
-  }
+  0% { left: 0px; }
+  20% { left: -100px; }
+  40% { left: 100px; }
+  60% { left: -100px; }
+  100% { left: 0px; }
 }
 
 @keyframes animation-test2 {
-  0% {
-    right: -20px;
-  }
-  
-  50% {
-    right: 20px;
-  }
-
-  100% {
-    right: -20px;
-  }
+  0% { right: -20px; }
+  50% { right: 20px; }
+  100% { right: -20px; }
 }
 
 @keyframes animation-test3 {
-  0% {
-    top: -10px;
-  }
-  
-  50% {
-    top: 20px;
-  }
-
-  100% {
-    top: -10px;
-  }
+  0% { top: -10px; }
+  50% { top: 20px; }
+  100% { top: -10px; }
 }
 
+@keyframes border-animation {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}
+
+/* Placeholder escondido até hover */
 .text-field::placeholder,
 .text-field2::placeholder,
 .text-field3::placeholder {
@@ -103,19 +147,3 @@
 .text-field3:hover::placeholder {
   opacity: 1;
 }
-
-.button-container {
-  padding-top: 40px;
-}
-
-.login-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  box-shadow: 0 2px 10px rgba(57, 91, 47, 0.983);
-}
-
